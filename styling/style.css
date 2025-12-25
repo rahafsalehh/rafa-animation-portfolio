@@ -1,0 +1,116 @@
+body{
+    margin: auto;
+    font-family: "MyFont", sans-serif; 
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('../Crimes Times Six.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'defaultFont';
+    src: url('../animeace_b.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --accent_orange: orange;
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 15px 15px; 
+    color: var(--accent_orange);
+    font-size: 3vh;
+    position: relative; 
+
+}
+
+nav a{
+    color: var(--accent_orange);
+    padding: 3px;
+    text-decoration: none;
+    margin-right: 3px;
+    position: relative; 
+    display: inline-block; 
+    transition: 0.3s;
+
+}
+
+.myName{
+    font-family: "MyFont", sans-serif; 
+}
+
+.myName:hover{
+    background-color: var(--accent_orange);
+    border-radius: 3px;
+    color: black;
+    padding: 3px 6px; 
+}
+
+.nav-links {
+    display: flex; 
+    gap: 20px; 
+}
+
+.nav-links a {
+    position: relative; 
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 1px;
+    left: 0;
+    background-color: var(--accent_orange);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    transform: translateY(-1px);
+}
+.nav-links a:hover{
+    transform: translateY(-2px);
+}
+
+.logo{
+     align-items: center;
+    display: flex;
+
+}
+
+#logoImage:hover{
+    cursor: pointer;
+}
+
+
+
+main {
+    background: url(../images/mexicanGuy.PNG);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 170vh;
+
+}
+
+footer{
+    display:flex;
+    justify-content: center;
+    background-color: black;
+    color: var(--accent_orange);
+    padding:20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
