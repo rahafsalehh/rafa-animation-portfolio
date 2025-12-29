@@ -1,17 +1,17 @@
 body{
     margin: auto;
-    font-family: "MyFont", sans-serif; 
+    /* font-family: "MyFont", sans-serif;  */
 }
 
 @font-face {
-    font-family: 'MyFont';
+    font-family: 'sharpFont';
     src: url('../Crimes Times Six.ttf') format('truetype'); 
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'defaultFont';
+    font-family: 'animeFont';
     src: url('../animeace_b.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -19,6 +19,7 @@ body{
 
 :root{
     --accent_orange: orange;
+    --accent_turquiose: rgb(83, 232, 243);
 }
 
 
@@ -30,8 +31,11 @@ nav {
     background-color: black;
     padding: 15px 15px; 
     color: var(--accent_orange);
-    font-size: 3vh;
+     font-size: clamp(16px, 1.5vw, 28px);
+
     position: relative; 
+    font-family: "sharpFont", sans-serif; 
+
 
 }
 
@@ -47,11 +51,12 @@ nav a{
 }
 
 .myName{
-    font-family: "MyFont", sans-serif; 
+    /* font-family: "sharpFont", sans-serif;  */
+
 }
 
 .myName:hover{
-    background-color: var(--accent_orange);
+    background-color: var(--accent_turquiose);
     border-radius: 3px;
     color: black;
     padding: 3px 6px; 
@@ -73,7 +78,7 @@ nav a{
     height: 2px;
     bottom: 1px;
     left: 0;
-    background-color: var(--accent_orange);
+    background-color: var(--accent_turquiose);
     transition: width 0.3s ease;
 }
 
@@ -83,6 +88,7 @@ nav a{
 }
 .nav-links a:hover{
     transform: translateY(-2px);
+    color: var(--accent_turquiose);
 }
 
 .logo{
@@ -92,12 +98,12 @@ nav a{
 }
 
 #logoImage:hover{
-    cursor: pointer;
+    /* cursor:none; */
 }
 
 
 
-main {
+.homeHero {
     background: url(../images/mexicanGuy.PNG);
     background-size: cover;
     background-position: center;
@@ -112,5 +118,13 @@ footer{
     background-color: black;
     color: var(--accent_orange);
     padding:20px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'animeFont';
+    font-size:2vh;
 }
+
+
+body::selection{
+    background-color:aquamarine;
+    color:black;
+}
+
