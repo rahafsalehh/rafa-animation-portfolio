@@ -75,7 +75,7 @@ nav a{
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 4px;
     bottom: 1px;
     left: 0;
     background-color: var(--accent_turquiose);
@@ -118,8 +118,8 @@ footer{
     background-color: black;
     color: var(--accent_orange);
     padding:20px;
-    font-family: 'animeFont';
-    font-size:2vh;
+    font-family: 'sharpFont';
+    font-size:2.6vh;
 }
 
 
