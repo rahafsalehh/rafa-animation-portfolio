@@ -1,15 +1,31 @@
-body {
+/* body {
     margin: auto;
-    background-color: #333; /* Your chosen color */
+    background-color: #333; 
     font-family: 'animeFont';
     
-    /* Add transparent image with multiple backgrounds */
+   
     background: 
         url('../images/backgroundGraffiti.PNG'),
-        #333; /* Color comes after image */
+        #333; 
     background-repeat: repeat;
     background-position: 0 0;
     background-size: cover;
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    font-family: 'animeFont';
+    
+    background-image: url('../images/backgroundGraffiti.PNG');
+    background-repeat: repeat;
+    background-position: 0px -1050px;
+    background-size: 1400px;
+    background-attachment: fixed; 
+    
+
+    min-height: 100vh;
 }
 
 @font-face {
