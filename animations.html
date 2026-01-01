@@ -7,6 +7,7 @@
     <link rel="icon" href="images/rafaLogo.PNG" height = "20" width="20">
     <link rel="stylesheet" href="styling/style.css">
     <link rel="stylesheet" href="styling/animations.css">
+    <script src="scripting/animations.js"></script>
     <title>Rafa Saleh | Illustrator/ Character Designer & Animator</title>
 </head>
 <body>
@@ -32,14 +33,16 @@
     </header>
 
   <main>
-    <div class="portfolio-grid">
+   
+ <div class="portfolio-grid">
         <!-- Portfolio Item 1 -->
         <div class="portfolio-item">
             <img src="gifs/yellowGuy.GIF" alt="Animation Project 1" class="portfolio-image">
             <div class="portfolio-content">
                 <h3 class="portfolio-title">Yellow Guy</h3>
                 <p class="portfolio-description">A lively character animation showcasing movement and personality.</p>
-                <a href="">View Project</a>
+                <p class="viewProject">View Animation</p>
+                <p class="viewProgress">View Progress</p>
             </div>
         </div>
         
@@ -49,35 +52,51 @@
             <div class="portfolio-content">
                 <h3 class="portfolio-title">Adult Azu Walking</h3>
                 <p class="portfolio-description">Vibrant digital animation featuring original character design.</p>
-            <a href="">View Project</a>
+            <p class="viewProject">View Animation</p>
+            <p class="viewProgress">View Progress</p>
             </div>
             
         </div>
 
 
+        <!-- Portfolio Item 3 -->
          <div class="portfolio-item">
             <img src="gifs/kidAzuWalking.GIF" alt="Illustration Project 1" class="portfolio-image">
             <div class="portfolio-content">
                 <h3 class="portfolio-title">Kid Azu Walking</h3>
                 <p class="portfolio-description">Digital animation featuring a younger version of an original character design.</p>
-            <a href="">View Project</a>
+            <p class="viewProject">View Animation</p>
+            <p class="viewProgress">View Progress</p>
             </div>
         </div>
 
+        <!-- Portfolio Item 4 -->
          <div class="portfolio-item">
             <img src="gifs/spinningYellowGuy.GIF" alt="Illustration Project 1" class="portfolio-image">
             <div class="portfolio-content">
                 <h3 class="portfolio-title">Yellow Guy Spinning</h3>
                 <p class="portfolio-description">Dynamic digital animation featuring original character design.</p>
-            <a href="">View Project</a>
+            <p class="viewProject">View Animation</p>
+            <p class="viewProgress">View Progress</p>
             </div>
         </div>
-        
-     
-       
-        
-   
+    
     </div>
+
+    <!-- Add this after your portfolio grid -->
+<div class="selected-project-view">
+    <div class="selected-project-container">
+        <div class="selected-project-image">
+            <img id="selected-image" src="" alt="Selected Project">
+        </div>
+        <div class="selected-project-info">
+            <h2 id="selected-title"></h2>
+            <p id="selected-description"></p>
+            <button class="close-view">&#x21d0; Back to Portfolio</button>
+        </div>
+    </div>
+</div>
+
 </main>
     <footer>
         <p>&#169; 2025 Rafa Saleh. All rights reserved</p>
