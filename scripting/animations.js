@@ -1,9 +1,12 @@
-// Wait for the DOM to load
+// Wait for the DOM to load - SINGLE event listener
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded - starting script');
     
-    // Get all viewProject elements
+    // Get all elements we need
     const viewProjectButtons = document.querySelectorAll('.viewProject');
+    const portGrid = document.querySelector('.portfolio-grid');
+    const existingDisplayDiv = document.querySelector('.selected-project-view');
+    
     console.log('Found', viewProjectButtons.length, 'viewProject buttons');
     
     // Add click event to each viewProject button
@@ -22,13 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Image source:', image.src);
             console.log('Title:', title.textContent);
             
+            // Hide portfolio grid
+            if (portGrid) {
+                portGrid.style.display = 'none';
+            }
+            
             // Call function to display the selected project
             displaySelectedProject(image.src, title.textContent, description.textContent, image.alt);
         });
     });
-    
-
-
 
     // Function to display the selected project
     function displaySelectedProject(imageSrc, title, description, altText) {
@@ -36,10 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Get or create the display div
         let displayDiv = document.querySelector('.selected-project-view');
-        // let portGrid = document.querySelector('.portfolio-grid');
-
-
-        // portGrid.style.display = 'none';
         
         // Initialize displayDiv if it doesn't exist (for fallback)
         if (!displayDiv) {
@@ -75,8 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show the display div
         console.log('Setting display to flex');
         displayDiv.style.display = 'flex';
-        
-        // Also add a CSS class for styling
         displayDiv.classList.add('active');
     }
     
@@ -121,17 +120,31 @@ document.addEventListener('DOMContentLoaded', function() {
         displayDiv.appendChild(container);
         document.body.appendChild(displayDiv);
         
-        // Add close functionality
+        // Add close functionality - THIS IS THE FIX!
         closeBtn.addEventListener('click', function() {
+            // Hide the project view
             displayDiv.style.display = 'none';
             displayDiv.classList.remove('active');
+            
+            // Show the portfolio grid again
+            const portGrid = document.querySelector('.portfolio-grid');
+            if (portGrid) {
+                portGrid.style.display = 'grid'; // or 'flex' depending on your CSS
+            }
         });
         
         // Close when clicking outside the container
         displayDiv.addEventListener('click', function(e) {
             if (e.target === displayDiv) {
+                // Hide the project view
                 displayDiv.style.display = 'none';
                 displayDiv.classList.remove('active');
+                
+                // Show the portfolio grid again
+                const portGrid = document.querySelector('.portfolio-grid');
+                if (portGrid) {
+                    portGrid.style.display = 'grid';
+                }
             }
         });
     }
@@ -141,33 +154,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const displayDiv = document.querySelector('.selected-project-view');
         if (displayDiv) {
             displayDiv.style.display = 'none';
+            
+            // Also add event listener for close button if it already exists in HTML
+            const closeBtn = displayDiv.querySelector('.close-view');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    displayDiv.style.display = 'none';
+                    displayDiv.classList.remove('active');
+                    
+                    // Show portfolio grid
+                    const portGrid = document.querySelector('.portfolio-grid');
+                    if (portGrid) {
+                        portGrid.style.display = 'grid';
+                    }
+                });
+            }
         }
     }
     
     // Call initialization
     initializeDisplayDiv();
     console.log('Initialization complete');
-});
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const closeBtn = document.querySelector('.close-view');
-    const displayDiv = document.querySelector('.selected-project-view');
-    const portGrid = document.querySelector('.portfolio-grid');
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            // Hide selected project view
-            displayDiv.style.display = 'none';
-            displayDiv.classList.remove('active');
-
-            // Show portfolio again
-            portGrid.style.display = 'grid'; // or 'flex' depending on your layout
-        });
-    }
 });
