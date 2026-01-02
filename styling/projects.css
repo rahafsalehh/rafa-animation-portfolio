@@ -20,7 +20,7 @@ main{
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f0f0f0;
+            background-color:#efb95c;
         }
 
         .slider-container {
@@ -158,3 +158,14 @@ main{
             background-color:black;
             color: orange;
            }
+
+/* Target the specific GIF by its filename */
+img[src*="adultAzuWalking.GIF"],
+img[src*="adultAzuWalking.gif"] {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+   
+}
