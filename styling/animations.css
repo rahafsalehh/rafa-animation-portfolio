@@ -107,7 +107,7 @@
 @media (max-width: 1200px) {
     .portfolio-grid {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        padding: 35px 15px;
+        padding: 30px;
     }
     
 }
@@ -116,7 +116,7 @@
     .portfolio-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
-        padding: 25px 15px;
+        padding: 30px;
     }
     
     .portfolio-image,
