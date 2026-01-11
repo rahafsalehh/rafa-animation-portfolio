@@ -17,12 +17,28 @@ viewProjectButtons.forEach((button, index) => {
         // Get the parent portfolio item
         const portfolioItem = this.closest('.portfolio-item');
         
-        // Get the image, title, and description from the portfolio item
-        const image = portfolioItem.querySelector('.portfolio-image');
+        // Get the media element (could be img or video)
+        const mediaElement = portfolioItem.querySelector('.portfolio-image');
         const title = portfolioItem.querySelector('.portfolio-title');
         const description = portfolioItem.querySelector('.portfolio-description');
         
-        console.log('Image source:', image.src); // THIS IS THE PROBLEM LINE
+        // PROPER WAY TO GET SRC FOR BOTH IMG AND VIDEO
+        let mediaSrc = mediaElement.src || mediaElement.getAttribute('src');
+        
+        // Debug logging
+        console.log('Media element:', mediaElement.tagName);
+        console.log('Media src (property):', mediaElement.src);
+        console.log('Media src (attribute):', mediaElement.getAttribute('src'));
+        console.log('Using mediaSrc:', mediaSrc);
+        
+        // If still undefined, check for source element inside video
+        if (!mediaSrc && mediaElement.tagName === 'VIDEO') {
+            const sourceElement = mediaElement.querySelector('source');
+            if (sourceElement) {
+                mediaSrc = sourceElement.getAttribute('src');
+                console.log('Found source element src:', mediaSrc);
+            }
+        }
         
         // Hide portfolio grid
         if (portGrid) {
@@ -30,7 +46,7 @@ viewProjectButtons.forEach((button, index) => {
         }
         
         // Call function to display the selected project
-        displaySelectedProject(image.src, title.textContent, description.textContent, image.alt);
+        displaySelectedProject(mediaSrc, title.textContent, description.textContent, mediaElement.alt || '');
     });
 });
 
