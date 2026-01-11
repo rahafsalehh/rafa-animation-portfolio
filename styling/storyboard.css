@@ -33,6 +33,14 @@ main{
             height: 100%;
             object-fit: cover;
         }
+
+
+         .storyboard-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin-bottom:5vh;
+        }
         
         .storyboard-content {
             padding: 20px;
