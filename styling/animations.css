@@ -152,8 +152,7 @@ main{
     .portfolio-grid {
         grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
         gap: 40px;
-        padding: 60px;
-        padding-right:40px;
+        padding: 40px;
         max-width: 1800px;
     }
     

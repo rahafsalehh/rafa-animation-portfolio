@@ -55,28 +55,62 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Set the content based on which project was clicked
-        const selectedImage = document.getElementById('selected-image');
-        const selectedTitle = document.getElementById('selected-title');
-        const selectedDescription = document.getElementById('selected-description');
+   // Set the content based on which project was clicked
+const selectedMediaContainer = document.getElementById('selected-media-container') || 
+                               document.querySelector('.selected-project-image');
+const selectedTitle = document.getElementById('selected-title');
+const selectedDescription = document.getElementById('selected-description');
+
+// Clear previous content
+if (selectedMediaContainer) {
+    selectedMediaContainer.innerHTML = '';
+    
+    // Check if it's a video file
+    if (imageSrc.toLowerCase().endsWith('.mov') || 
+        imageSrc.toLowerCase().endsWith('.mp4') || 
+        imageSrc.toLowerCase().endsWith('.webm')) {
         
-        if (selectedImage) {
-            selectedImage.src = imageSrc;
-            selectedImage.alt = altText;
-        }
+        // Create video element
+        const video = document.createElement('video');
+        video.src = imageSrc;
+        video.controls = true;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.style.width = '100%';
+        video.style.maxHeight = '70vh';
+        video.style.objectFit = 'contain';
+        video.className = 'selected-project-media';
         
-        if (selectedTitle) {
-            selectedTitle.textContent = title;
-        }
+        selectedMediaContainer.appendChild(video);
+    } else {
+        // Create image element
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.alt = altText;
+        img.id = 'selected-image';
+        img.className = 'selected-project-media';
+        img.style.width = '100%';
+        img.style.maxHeight = '70vh';
+        img.style.objectFit = 'contain';
         
-        if (selectedDescription) {
-            selectedDescription.textContent = description;
-        }
-        
-        // Show the display div
-        console.log('Setting display to flex');
-        displayDiv.style.display = 'flex';
-        displayDiv.classList.add('active');
+        selectedMediaContainer.appendChild(img);
+    }
+}
+
+if (selectedTitle) {
+    selectedTitle.textContent = title;
+}
+
+if (selectedDescription) {
+    selectedDescription.textContent = description;
+}
+
+// Show the display div
+console.log('Setting display to flex');
+displayDiv.style.display = 'flex';
+displayDiv.classList.add('active');
     }
     
     // Function to create the display div if it doesn't exist in HTML

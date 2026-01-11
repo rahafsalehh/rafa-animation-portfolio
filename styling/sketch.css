@@ -2,7 +2,7 @@
     margin:29px;
    }
    
-   .portfolio-grid {
+   /* .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
@@ -39,4 +39,54 @@
           .sketchItem:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-        }
+        } */
+
+
+
+
+
+.portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.sketchItem {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 350px;
+    /* This is the key - container shrinks to fit image */
+    width: fit-content;
+}
+
+.sketch-image {
+    width: fit-content;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sketch-image img {
+    width: auto;
+    height: 100%;
+    /* Remove max-width restriction */
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.sketchItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
