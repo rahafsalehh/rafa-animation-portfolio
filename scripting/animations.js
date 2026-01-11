@@ -10,30 +10,29 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Found', viewProjectButtons.length, 'viewProject buttons');
     
     // Add click event to each viewProject button
-    viewProjectButtons.forEach((button, index) => {
-        button.addEventListener('click', function() {
-            console.log('Button clicked:', index);
-            
-            // Get the parent portfolio item
-            const portfolioItem = this.closest('.portfolio-item');
-            
-            // Get the image, title, and description from the portfolio item
-            const image = portfolioItem.querySelector('.portfolio-image');
-            const title = portfolioItem.querySelector('.portfolio-title');
-            const description = portfolioItem.querySelector('.portfolio-description');
-            
-            console.log('Image source:', image.src);
-            console.log('Title:', title.textContent);
-            
-            // Hide portfolio grid
-            if (portGrid) {
-                portGrid.style.display = 'none';
-            }
-            
-            // Call function to display the selected project
-            displaySelectedProject(image.src, title.textContent, description.textContent, image.alt);
-        });
+viewProjectButtons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+        console.log('Button clicked:', index);
+        
+        // Get the parent portfolio item
+        const portfolioItem = this.closest('.portfolio-item');
+        
+        // Get the image, title, and description from the portfolio item
+        const image = portfolioItem.querySelector('.portfolio-image');
+        const title = portfolioItem.querySelector('.portfolio-title');
+        const description = portfolioItem.querySelector('.portfolio-description');
+        
+        console.log('Image source:', image.src); // THIS IS THE PROBLEM LINE
+        
+        // Hide portfolio grid
+        if (portGrid) {
+            portGrid.style.display = 'none';
+        }
+        
+        // Call function to display the selected project
+        displaySelectedProject(image.src, title.textContent, description.textContent, image.alt);
     });
+});
 
     // Function to display the selected project
     function displaySelectedProject(imageSrc, title, description, altText) {
