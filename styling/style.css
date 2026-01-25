@@ -129,11 +129,11 @@ nav a{
 
 
 .homeHero {
-    background: url(../images/mexicanGuy.PNG);
+    background: url(../images/azuFalling.PNG);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 170vh;
+    min-height: 200vh;
 
 }
 
