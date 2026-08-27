@@ -130,10 +130,10 @@ nav a{
 
 .homeHero {
     background: url(../images/azuGettingManhandled.png);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 280vh;
+    min-height: 260vh;
 
 }
 
